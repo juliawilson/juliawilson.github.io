@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<script>
+
+
+	
+	d3.json("data/flightData.csv", function(error, data) {
+		if (error) {
+		console.log(error.status, error.statusText);
+		}
+		else {
+
+		draw(data);
+		console.log(data);
+		}
+	});
+
+
+
+</script>
