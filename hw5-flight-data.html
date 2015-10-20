@@ -6,13 +6,13 @@ layout: default
 
 
 	
-	d3.json("data/flightData.csv", function(error, data) {
+	d3.csv("data/flightData.csv", function(error, data) {
 		if (error) {
 		console.log(error.status, error.statusText);
 		}
 		else {
 
-		draw(data);
+		// draw(data);
 		console.log(data);
 		}
 	});
