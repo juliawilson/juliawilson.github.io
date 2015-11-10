@@ -1,0 +1,172 @@
+---
+layout: default
+---
+
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+</head>
+
+
+<style>
+	h1 {
+		font-family: 'Source Sans Pro', sans-serif;		
+		text-align: center;
+		letter-spacing: 1px;
+		}
+
+	h3 {
+		margin-top: 8px;
+		font-size: 14px;
+	}
+
+	body {
+		background-color: #E4E4E6;
+		}
+
+	.line-separator {
+		height:4px;
+		background: #FFFFFF;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: -10px;
+		background-image: linear-gradient(to right, #A7A9AB, black);
+		}
+
+	#nav {
+    	height: 125px;
+    	display:block;
+		text-align: justify;
+    	min-width: 612px;
+    	margin:0 auto;
+    	float: left;
+		}
+
+	.box {
+	    background: white;
+	    font-family: 'Source Sans Pro', sans-serif;
+	    font-weight: 700;
+	    text-align: center;
+	    width: 120px;
+	    height: 35px;
+	    /*display: inline-block;*/
+	    float: left;
+	    margin-top: 20px;
+	    margin-left: 40px;
+
+		}
+
+	.box:hover {
+		background: black;
+		color: white;
+	}
+</style>
+
+<!-- header + nav -->
+<body>
+	<h1>AIRPORTS AROUND THE WORLD</h1>
+	<div class="line-separator"></div>
+	
+	<div id="nav">
+    	<div class="box"><h3>N. AMERICA</h3></div>
+    	<div class="box"><h3>S. AMERICA</h3></div>
+    	<div class="box"><h3>AFRICA</h3></div>
+    	<div class="box"><h3>ASIA</h3></div>
+    	<div class="box"><h3>EUROPE</h3></div>
+    	<div class="box"><h3>ANTARCTICA</h3></div>
+	</div>
+</body>
+
+
+<!-- data working for class -->
+<div id="controls">
+	<select id="country_dropdown">
+	</select>
+</div>
+
+<svg width=500 height=500></svg>
+
+<!-- drop down menu -->
+<div id="controls">
+	<select id="country_dropdown"></select>
+</div>
+
+<svg width=500 height=500></svg>
+
+<script>
+var raw_data = [],
+	country = false;
+
+d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, data){
+
+	raw_data = data.filter(function(d){
+		return d.country;
+	});
+
+	var countries = [];
+	raw_data.forEach(function(d){
+		if (countries.indexOf(d.country) == -1) {
+			countries.push(d.country);
+		}
+	});
+
+	countries.sort();
+	country = country[0];
+
+	d3.select("#country_dropdown").selectAll("option")
+		.data(countries).enter().append("option")
+		.attr("value", function(d){
+			return d;
+		})
+		.text(function(d){
+			return d;
+		});
+
+		d3.select("#country_dropdown").on("change", function(){
+			country = countries[this.selectedIndex];
+
+			// draw();
+
+		});
+
+		// draw();
+	});
+
+	function draw() {
+		var country_data = raw_data.filter(function(d){
+			return d.country === country;
+		});
+
+		var scale = d3.scale.linear()
+			.domain([0, 100])
+			.range([20, 250]);
+
+		var circle = d3.select("svg").selectAll("circle")
+			.data([{"country": "Iceland"}]);
+
+		circle.enter().append("circle")
+			.attr("r", 0)
+			.attr("cx", 250)
+			.attr("cy", 250);
+
+		circle.transition().duration(500)
+			.attr("r", function (d){
+				return scale(d.countries);
+		});
+
+		circle
+			.on("mouseover", function(d){
+				d3.select(this).attr("fill", "blue");
+			})
+			.on("mouseout", function(d){
+				d3.select(this).attr("fill", "black");
+			})
+			.on("click", function (d){
+				d3.select(this).attr("fill","red");
+				console.log(d.country);
+			});
+
+
+		console.log(country_data);
+	}
+
+</script>
