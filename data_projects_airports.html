@@ -48,11 +48,22 @@ layout: default
 	    text-align: center;
 	    width: 120px;
 	    height: 35px;
-	    /*display: inline-block;*/
 	    float: left;
 	    margin-top: 20px;
 	    margin-left: 40px;
+		}
 
+	.box-selected {
+		background: black;
+		color: white;
+	    font-family: 'Source Sans Pro', sans-serif;
+	    font-weight: 700;
+	    text-align: center;
+	    width: 120px;
+	    height: 35px;
+	    float: left;
+	    margin-top: 20px;
+	    margin-left: 40px;
 		}
 
 	.box:hover {
@@ -71,102 +82,61 @@ layout: default
     	<div class="box"><h3>S. AMERICA</h3></div>
     	<div class="box"><h3>AFRICA</h3></div>
     	<div class="box"><h3>ASIA</h3></div>
-    	<div class="box"><h3>EUROPE</h3></div>
+    	<div class="box-selected"><h3>EUROPE</h3></div>
     	<div class="box"><h3>ANTARCTICA</h3></div>
+    	<div class="box"><h3>OCEANIA</h3></div>
+
 	</div>
 </body>
 
 
-<!-- data working for class -->
-<div id="controls">
-	<select id="country_dropdown">
-	</select>
-</div>
-
-<svg width=500 height=500></svg>
-
-<!-- drop down menu -->
-<div id="controls">
-	<select id="country_dropdown"></select>
-</div>
-
-<svg width=500 height=500></svg>
+<!-- data -->
+<svg width=3000 height=1000></svg>
 
 <script>
-var raw_data = [],
-	country = false;
+var raw_data = [];
+
+var countries = [];
 
 d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, data){
 
-	raw_data = data.filter(function(d){
-		return d.country;
-	});
+	raw_data = data;
+		
+	countries = d3.nest()
+		.key(function(d){
+			return d.country;
+		})	
+		.entries(data)
 
-	var countries = [];
-	raw_data.forEach(function(d){
-		if (countries.indexOf(d.country) == -1) {
-			countries.push(d.country);
-		}
-	});
+		console.log(countries)
 
-	countries.sort();
-	country = country[0];
+		draw(countries)
+});
 
-	d3.select("#country_dropdown").selectAll("option")
-		.data(countries).enter().append("option")
-		.attr("value", function(d){
-			return d;
-		})
-		.text(function(d){
-			return d;
-		});
+// need every airport per country in a numeric value to create circles
 
-		d3.select("#country_dropdown").on("change", function(){
-			country = countries[this.selectedIndex];
+function draw(data) {
+	var c = d3.select("svg").selectAll("circle")
+		.data(data)
 
-			// draw();
-
-		});
-
-		// draw();
-	});
-
-	function draw() {
-		var country_data = raw_data.filter(function(d){
-			return d.country === country;
-		});
-
-		var scale = d3.scale.linear()
-			.domain([0, 100])
-			.range([20, 250]);
-
-		var circle = d3.select("svg").selectAll("circle")
-			.data([{"country": "Iceland"}]);
-
-		circle.enter().append("circle")
-			.attr("r", 0)
-			.attr("cx", 250)
-			.attr("cy", 250);
-
-		circle.transition().duration(500)
-			.attr("r", function (d){
-				return scale(d.countries);
-		});
-
-		circle
-			.on("mouseover", function(d){
-				d3.select(this).attr("fill", "blue");
+		c.enter().append("circle")
+			.attr("transform", "translate(10, 100)")
+			.attr("cx", function(d, i){
+				return 10 + (35*(i + 1));
 			})
-			.on("mouseout", function(d){
-				d3.select(this).attr("fill", "black");
-			})
-			.on("click", function (d){
-				d3.select(this).attr("fill","red");
-				console.log(d.country);
-			});
 
 
-		console.log(country_data);
-	}
+		c.attr("r", function(d){
+
+			console.log(d)
+			return 15;
+		});
+
+		c.exit().remove();
+
+	console.log(countries)
+}
+
+
 
 </script>

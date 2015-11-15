@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<svg height=600 width=600></svg>
+
+<script>
+
+	var data = [
+
+		{"color": "lightgray", "name": "Barry", "savings": 75},
+		{"color": "darkgray", "name": "Harry", "savings": 25},
+		{"color": "black", "name": "Oliver", "savings": 1523.63}
+	];
+
+	var pie = d3.layout.pie()
+		.value(function(d){
+			return d.savings;
+		});
+
+		data = pie(data);
+
+		var arc = d3.svg.arc()
+			.innerRadius(150)
+			.outerRadius(300);
+
+		var slices = d3.select("svg").selectAll("path")
+			.data(data);
+
+		slices.enter().append("path")
+			.attr("transform", "translate(300, 300)")
+			.style("fill", function(d){
+				return d.data.color;
+			})
+			.attr("d", arc);
+
+
+// nesting data (use this for countries, nested by countries)
+
+var airport_data = [
+	{"country": "USA", "airport": 1},
+	{"country": "USA", "airport": 2},
+	{"country": "FRA", "airport": 3},
+	{"country": "GER", "airport": 7},
+	{"country": "GER", "airport": 8},
+	{"country": "GER", "airport": 99}
+];
+
+var country_data = d3.nest()
+	.key(function(d){
+		return d.country;
+	})
+
+	.rollup(function(leaves){
+		return leaves.length;
+	})
+	.entries(airport_data);
+
+	console.log(country_data);
+
+</script>
