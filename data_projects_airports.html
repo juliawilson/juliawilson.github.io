@@ -91,7 +91,7 @@ layout: default
 
 
 <!-- data -->
-<svg width=3000 height=1000></svg>
+<svg width=2000 height=1000></svg>
 
 <script>
 var raw_data = [];
@@ -99,8 +99,10 @@ var raw_data = [];
 var countries = [];
 
 d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, data){
-
-	raw_data = data;
+	
+	raw_data = data.filter(function(d){
+		return d.continent === "Europe";
+	});
 		
 	countries = d3.nest()
 		.key(function(d){
