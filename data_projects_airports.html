@@ -96,30 +96,40 @@ layout: default
 <script>
 var raw_data = [];
 
-var countries = [];
+var nestedData = [];
 
 d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, data){
-	
-	raw_data = data.filter(function(d){
-		return d.continent === "Europe";
-	});
 		
-	countries = d3.nest()
+	var nestedData = d3.nest()
+		.key(function(d) {
+			return d.continent;
+		})	
+
 		.key(function(d){
 			return d.country;
-		})	
-		.entries(data)
+		})
 
-		console.log(countries)
+		.rollup(function(leaves){
+			return leaves.length;
+		})
 
-		draw(countries)
+		.entries(data);
+
+	nestedData = data.filter(function(d){
+		return d.continent === "Europe";
+	});
+
+	draw(nestedData);
+
+	console.log(nestedData);
+
 });
 
 // need every airport per country in a numeric value to create circles
 
 function draw(data) {
 	var c = d3.select("svg").selectAll("circle")
-		.data(data)
+		.data([{"airports": nestedData.length, "continent": "Europe"}])
 
 		c.enter().append("circle")
 			.attr("transform", "translate(10, 100)")
@@ -129,15 +139,18 @@ function draw(data) {
 
 
 		c.attr("r", function(d){
-
-			console.log(d)
-			return 15;
+			var scale = d3.scale.linear()
+				.domain([0, 50000])
+				.range([20, 250]);
+			return scale(d.airports);
 		});
 
 		c.exit().remove();
 
-	console.log(countries)
+	// console.log(nestedData)
 }
+
+
 
 
 
