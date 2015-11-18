@@ -8,6 +8,9 @@ layout: default
 
 
 <style>
+	svg{
+		margin-top: -90px;
+	}
 	h1 {
 		font-family: 'Source Sans Pro', sans-serif;		
 		text-align: center;
@@ -15,8 +18,9 @@ layout: default
 		}
 
 	h3 {
-		margin-top: 8px;
+		margin-top: 5px;
 		font-size: 14px;
+		font-weight: 400;
 	}
 
 	body {
@@ -44,10 +48,10 @@ layout: default
 	.box {
 	    background: white;
 	    font-family: 'Source Sans Pro', sans-serif;
-	    font-weight: 700;
+	    font-weight: 400;
 	    text-align: center;
 	    width: 120px;
-	    height: 35px;
+	    height: 30px;
 	    float: left;
 	    margin-top: 20px;
 	    margin-left: 40px;
@@ -57,10 +61,10 @@ layout: default
 		background: black;
 		color: white;
 	    font-family: 'Source Sans Pro', sans-serif;
-	    font-weight: 700;
+	    font-weight: 400;
 	    text-align: center;
 	    width: 120px;
-	    height: 35px;
+	    height: 30px;
 	    float: left;
 	    margin-top: 20px;
 	    margin-left: 40px;
@@ -78,29 +82,40 @@ layout: default
 	<div class="line-separator"></div>
 	
 	<div id="nav">
-    	<div class="box"><h3>N. AMERICA</h3></div>
-    	<div class="box"><h3>S. AMERICA</h3></div>
-    	<div class="box"><h3>AFRICA</h3></div>
-    	<div class="box"><h3>ASIA</h3></div>
-    	<div class="box-selected"><h3>EUROPE</h3></div>
-    	<div class="box"><h3>ANTARCTICA</h3></div>
-    	<div class="box"><h3>OCEANIA</h3></div>
-
+    	<div class="box"><h3>north america</h3></div>
+    	<div class="box"><h3>south america</h3></div>
+    	<div class="box"><h3>africa</h3></div>
+    	<div class="box"><h3>asia</h3></div>
+    	<div class="box-selected"><h3>europe</h3></div>
+    	<div class="box"><h3>antarctica</h3></div>
+    	<div class="box"><h3>oceania</h3></div>
 	</div>
 </body>
 
 
 <!-- data -->
-<svg width=2000 height=1000></svg>
+<svg width=1500 height=800></svg>
 
 <script>
+
+var ugh = [];
+
 var raw_data = [];
 
 var nestedData = [];
 
+d3.json("data/world.json", function(data){
+	console.log(data);
+	var nestedData = topojson.feature(data, data.objects.ne_10m_admin_0_countries);
+	var projection = d3.geo.mercator();
+	var path = d3.geo.path().projection(projection);
+
+	console.log(nestedData);
+});
+
 d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, data){
 		
-	var nestedData = d3.nest()
+	nestedData = d3.nest()
 		.key(function(d) {
 			return d.continent;
 		})	
@@ -115,8 +130,8 @@ d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, dat
 
 		.entries(data);
 
-	nestedData = data.filter(function(d){
-		return d.continent === "Europe";
+	nestedData = nestedData.filter(function(d){
+		return d.key == "Europe";
 	});
 
 	draw(nestedData);
@@ -128,26 +143,36 @@ d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, dat
 // need every airport per country in a numeric value to create circles
 
 function draw(data) {
+
+	console.log(nestedData)
 	var c = d3.select("svg").selectAll("circle")
-		.data([{"airports": nestedData.length, "continent": "Europe"}])
+		.data(data[0].values, function(d){
+			return d.key;
+		});
 
 		c.enter().append("circle")
-			.attr("transform", "translate(10, 100)")
-			.attr("cx", function(d, i){
-				return 10 + (35*(i + 1));
+			.attr("fill", "#404041")
+			.attr("r", "2")
+			.attr("cy", function(d, i){
+				return 100 * ((i % 3) + 1);
 			})
+			.attr("cx", function(d, i){
+				return 50 * ((i % 23) + 1);
+			});
 
+	var scale = d3.scale.linear()
+			.domain([0, 250])
+			.range([4, 30]);
 
-		c.attr("r", function(d){
-			var scale = d3.scale.linear()
-				.domain([0, 50000])
-				.range([20, 250]);
-			return scale(d.airports);
-		});
+		c.transition().duration(500)
+			.attr("r", function(d){
+				console.log(d.values)
+				return scale(d.values);
+
+			});
 
 		c.exit().remove();
 
-	// console.log(nestedData)
 }
 
 
