@@ -74,6 +74,11 @@ layout: default
 		background: black;
 		color: white;
 	}
+
+	a:hover a:visited a:hover a:active {
+		text-decoration: none;
+	}
+	
 </style>
 
 <!-- header + nav -->
@@ -82,13 +87,13 @@ layout: default
 	<div class="line-separator"></div>
 	
 	<div id="nav">
-    	<div class="box"><h3>north america</h3></div>
-    	<div class="box"><h3>south america</h3></div>
-    	<div class="box"><h3>africa</h3></div>
-    	<div class="box"><h3>asia</h3></div>
-    	<div class="box-selected"><h3>europe</h3></div>
-    	<div class="box"><h3>antarctica</h3></div>
-    	<div class="box"><h3>oceania</h3></div>
+    	<div class="box"><a href="airports_northamerica.html"><h3>north america</h3></a></div>
+    	<div class="box"><a href="airports_southamerica.html"><h3>south america</h3></a></div>
+    	<div class="box"><a href="airports_africa.html"><h3>africa</h3></a></div>
+    	<div class="box"><a href="airports_asia.html"><h3>asia</h3></a></div>
+    	<div class="box"><a href="airports_europe.html"><h3>europe</h3></a></div>
+    	<div class="box-selected"><a href="airports_antarctica.html"><h3>antarctica</h3></a></div>
+    	<div class="box"><a href="airports_oceania.html"><h3>oceania</h3></a></div>
 	</div>
 </body>
 
@@ -106,7 +111,7 @@ var countries = [];
 
 var nestedData = [];
 
-var width = 1500;
+var width = 1200;
 
 var height = 800;
 
@@ -139,7 +144,7 @@ d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, dat
 		.entries(data);
 
 	nestedData = nestedData.filter(function(d){
-		return d.key == "Europe";
+		return d.key == "Antarctica";
 	});
 
 	draw(nestedData);
