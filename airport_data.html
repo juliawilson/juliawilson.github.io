@@ -70,6 +70,19 @@ layout: default
 	    margin-left: 40px;
 		}
 
+	a.box-selected {
+		background: black;
+		color: white;
+	    font-family: 'Source Sans Pro', sans-serif;
+	    font-weight: 400;
+	    text-align: center;
+	    width: 120px;
+	    height: 30px;
+	    float: left;
+	    margin-top: 20px;
+	    margin-left: 40px;
+		}
+
 	.box:hover {
 		background: black;
 		color: white;
@@ -79,22 +92,32 @@ layout: default
 		text-decoration: none;
 	}
 
+	.airport-name {
+		background-color: black;
+		padding-top: 500px;
+	}
+
 </style>
 
-<!-- header + nav -->
 <body>
+	<!-- header + nav -->
 	<h1>AIRPORTS AROUND THE WORLD</h1>
 	<div class="line-separator"></div>
-	
+
 	<div id="nav">
-    	<div class="box"><a href="airports_northamerica.html"><h3>north america</h3></a></div>
-    	<div class="box"><a href="airports_southamerica.html"><h3>south america</h3></a></div>
-    	<div class="box-selected"><a href="airports_africa.html"><h3>africa</h3></a></div>
-    	<div class="box"><a href="airports_asia.html"><h3>asia</h3></a></div>
-    	<div class="box"><a href="airports_europe.html"><h3>europe</h3></a></div>
-    	<div class="box"><a href="airports_antarctica.html"><h3>antarctica</h3></a></div>
-    	<div class="box"><a href="airports_oceania.html"><h3>oceania</h3></a></div>
+		<div class="box" onclick="changeCountry('North America')"><h3>north america</h3></div>
+		<div class="box" onclick="changeCountry('South America')"><h3>south america</h3></div>
+		<div class="box" onclick="changeCountry('Africa')"><h3>africa</h3></div>
+		<div class="box" onclick="changeCountry('Asia')"><h3>asia</h3></div>
+		<div class="box" onclick="changeCountry('Europe')"><h3>europe</h3></div>
+		<div class="box" onclick="changeCountry('Antarctica')"><h3>antarctica</h3></div>
+		<div class="box" onclick="changeCountry('Oceania')"><h3>oceania</h3></div>
 	</div>
+
+	<!--airport information boxes -->
+	<div id="airport-name"></div>
+	<div id="airport-value"></div>
+
 </body>
 
 
@@ -118,6 +141,13 @@ var height = 800;
 var svg = d3.select('svg')
 	.attr('width', width)
 	.attr('height', height);
+
+function changeCountry(country) {
+    var countryData = nestedData.filter(function(d){
+        return d.key == country;
+    });
+    draw(countryData);
+}
 
 d3.json("data/world.json", function(data){
 	console.log(data);
@@ -143,11 +173,7 @@ d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, dat
 
 		.entries(data);
 
-	nestedData = nestedData.filter(function(d){
-		return d.key == "Africa";
-	});
-
-	draw(nestedData);
+changeCountry("Europe");
 
 });
 
@@ -188,7 +214,7 @@ function draw(data) {
 	    s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
 	    t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
 
-	// Update the projection to use computed scale & translate.
+	// Update the projection to use computed scale & translate so it falls in map axis.
 	projection
 	    .scale(s)
 	    .translate(t);
@@ -206,6 +232,7 @@ function draw(data) {
 
 		c.enter().append("circle")
 			.attr("fill", "#404041")
+			.attr("fill-opacity", "0.6")
 			.attr("r", "2")
 			.attr("cy", function(d, i){
 				return countryCenters[d.key][1]
@@ -225,6 +252,15 @@ function draw(data) {
 				return scale(d.values);
 
 			});
+
+
+	c.on("mouseover", function(d){
+	    d3.select("#airport-name").text(d.key);
+	    d3.select("#airport-value").text(d.values);
+	}).on("mouseout", function(d){
+	    d3.select("#airport-name").text("");
+	    d3.select("#airport-value").text("");
+	});
 
 		c.exit().remove();
 
