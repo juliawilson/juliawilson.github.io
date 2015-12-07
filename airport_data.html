@@ -17,12 +17,6 @@ layout: default
 		letter-spacing: 1px;
 		}
 
-	h3 {
-		margin-top: 5px;
-		font-size: 14px;
-		font-weight: 400;
-	}
-
 	body {
 		background-color: #E4E4E6;
 		}
@@ -47,8 +41,10 @@ layout: default
 
 	.box {
 	    background: white;
+		text-transform: lowercase;
 	    font-family: 'Source Sans Pro', sans-serif;
 	    font-weight: 400;
+	    font-size: 14px;
 	    text-align: center;
 	    width: 120px;
 	    height: 30px;
@@ -57,9 +53,10 @@ layout: default
 	    margin-left: 40px;
 		}
 
-	.box-selected {
+	.box.selected {
 		background: black;
 		color: white;
+		text-transform: lowercase;
 	    font-family: 'Source Sans Pro', sans-serif;
 	    font-weight: 400;
 	    text-align: center;
@@ -70,7 +67,7 @@ layout: default
 	    margin-left: 40px;
 		}
 
-	a.box-selected {
+	a.box.selected {
 		background: black;
 		color: white;
 	    font-family: 'Source Sans Pro', sans-serif;
@@ -97,8 +94,9 @@ layout: default
 		font-family: 'Source Sans Pro', sans-serif;
 		text-align: center;
 		background: white;
-		height: 30px;
+		height: 20px;
 		width: 100px;
+		display: block;
 	}
 
 </style>
@@ -109,13 +107,12 @@ layout: default
 	<div class="line-separator"></div>
 
 	<div id="nav">
-		<div class="box" onclick="changeCountry('North America')"><h3>north america</h3></div>
-		<div class="box" onclick="changeCountry('South America')"><h3>south america</h3></div>
-		<div class="box" onclick="changeCountry('Africa')"><h3>africa</h3></div>
-		<div class="box" onclick="changeCountry('Asia')"><h3>asia</h3></div>
-		<div class="box" onclick="changeCountry('Europe')"><h3>europe</h3></div>
-		<div class="box" onclick="changeCountry('Antarctica')"><h3>antarctica</h3></div>
-		<div class="box" onclick="changeCountry('Oceania')"><h3>oceania</h3></div>
+		<div class="box">North America</div>
+		<div class="box">South America</div>
+		<div class="box">Africa</div>
+		<div class="box">Europe</div>
+		<div class="box">Antarctica</div>
+		<div class="box">Oceania</div>
 	</div>
 
 	<!--airport information boxes -->
@@ -154,6 +151,16 @@ function changeCountry(country) {
     });
     draw(countryData);
 }
+
+d3.selectAll(".box").on("click", function(){
+    var continent = this.innerHTML; // grabs the inside text of the clicked box
+    d3.selectAll(".box").classed("selected", function(){
+        return this.innerHTML === continent; // gives the "selected" class to only the box whose inside text matches
+    });
+    changeCountry(continent); // triggers the changeCountry function
+});
+
+
 
 d3.json("data/world.json", function(data){
 	console.log(data);
