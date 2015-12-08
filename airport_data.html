@@ -90,13 +90,15 @@ layout: default
 	}
 
 	.airport-info {
-		padding-top:20px;
 		font-family: 'Source Sans Pro', sans-serif;
+		color: #EF4244;
 		text-align: center;
-		background: white;
-		height: 20px;
-		width: 100px;
+		font-weight: 700;
+		width: 125px;
 		display: block;
+		margin-left: 40px;
+		margin-top: 95px;
+		position: absolute;
 	}
 
 </style>
@@ -270,6 +272,20 @@ function draw(data) {
 	c.on("mouseover", function(d){
 	    d3.select("#airport-name").text(d.key);
 	    d3.select("#airport-value").text(d.values);
+
+	    d3.select(".airport-info")
+    		.attr("top", function(d, i){
+        		var svgTop = svg.node().offsetTop;
+        		var radius = scale(d.values);
+        	return (countryCenters[d.key][1] + svgTop + radius) + "px";
+    	})
+    		.attr("left", function(d, i){
+        		var svgLeft = svg.node().offsetLeft;
+        		var infoWidth = 125; // the width value from your css
+        	return (countryCenters[d.key][0] + svgLeft - infoWidth/2) + "px";
+    	});
+
+
 	}).on("mouseout", function(d){
 	    d3.select("#airport-name").text("");
 	    d3.select("#airport-value").text("");
