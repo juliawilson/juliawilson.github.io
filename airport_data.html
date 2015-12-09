@@ -114,6 +114,7 @@ layout: default
 		<div class="box">Africa</div>
 		<div class="box">Europe</div>
 		<div class="box">Antarctica</div>
+		<div class="box">Asia</div>
 		<div class="box">Oceania</div>
 	</div>
 
@@ -171,7 +172,7 @@ d3.json("data/world.json", function(data){
 		countries.full = countries.features;
 	});
 
-d3.csv("https://juliawilson.github.io/data/flightData.csv", function (error, data){
+d3.csv("data/flightData.csv", function (error, data){
 		
 	nestedData = d3.nest()
 		.key(function(d) {
@@ -201,6 +202,10 @@ function draw(data) {
 	var ids = data.map(function(d){
 		return d.key;
 	})
+
+	console.log(countries.full.map(function(d){
+		return d.id;
+	}).sort())
 
 	countries.features = countries.full.filter(function(d){
 		return ids.indexOf(d.id) >= 0;
