@@ -42,6 +42,7 @@ layout: default
 	.box {
 	    background: white;
 		text-transform: lowercase;
+		padding-top:10px;
 	    font-family: 'Source Sans Pro', sans-serif;
 	    font-weight: 400;
 	    font-size: 14px;
@@ -91,13 +92,14 @@ layout: default
 
 	.airport-info {
 		font-family: 'Source Sans Pro', sans-serif;
-		color: #EF4244;
+		color: #black;
+		font-size: 30px;
 		text-align: center;
-		font-weight: 700;
-		width: 125px;
+		font-weight: 400;
+		width: 300px;
 		display: block;
-		margin-left: 40px;
-		margin-top: 95px;
+		margin-left: 900px;
+		margin-top: 150px;
 		position: absolute;
 	}
 
@@ -123,7 +125,6 @@ layout: default
 		<div id="airport-name"></div>
 		<div id="airport-value"></div>
 	</div>
-
 </body>
 
 
@@ -276,7 +277,7 @@ function draw(data) {
 
 	c.on("mouseover", function(d){
 	    d3.select("#airport-name").text(d.key);
-	    d3.select("#airport-value").text(d.values);
+	    d3.select("#airport-value").text(d.values + "\x20airports");
 
 	    d3.select(".airport-info")
     		.attr("top", function(d, i){
