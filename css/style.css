@@ -111,6 +111,7 @@ NAVIGATION OPACITY
 .opacity-nav{
   position:fixed;
   font-family:"Inconsolata";
+  text-decoration: underline;
   display:none;
   width:100%;
   height:100%;
@@ -136,11 +137,14 @@ ul.menu-fullscreen li{
 
 ul.menu-fullscreen li > a{
   color:#999999;
+  border-bottom:1px;
   border:0;
 }
 
 ul.menu-fullscreen li > a:hover{
   color:#ffffff;
+  border-bottom:1px;
+
 }
 
 
@@ -607,10 +611,23 @@ footer{
   color: #686868;
   letter-spacing: 1px;
   font-family:"Inconsolata";
-  font-size: 12px;
+  font-size: 14px;
   width: 100%;
   text-align:center;
   float: left;
+}
+
+.footer-margin .quote{
+  color: #686868;
+  letter-spacing:1px;
+  font-family:"Inconsolata";
+  font-weight: 700;
+  line-height:18px;
+  font-size:14px;
+  width:100%;
+  text-align:center;
+  float:left;
+;
 }
 
 .footer-margin .social-footer{
@@ -630,6 +647,7 @@ footer{
 
 .footer-margin .social-footer a:hover{
   color:#c3c3c3;
+  text-transform: underline;
 }
 
 
