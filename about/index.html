@@ -4,11 +4,11 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Contact</title>
+  <title>About</title>
   <meta name="description" content="J+ Studio is a branding, web and product design studio that keeps things clean and intuitive.">
   <meta name="keywords" content="clean, intuitive, design, branding, product design, web design">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="author" content="j-plus.co">
+  <meta name="author" content="thomsoon.com">
   <link rel="icon" type="image/png" href="img/icon.png" />
 
 <!--Style-->
@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
   
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,48 +71,92 @@
 
   <div class="content" id="ajax-content">
 
+
         <div class="text-intro">
 
-          <h1>Say hello.</h1>
-          <p>Write an e-mail via the form,
-or shoot us an email directly to
-<a href="mailto:youremailaddress">hello@j-plus.co</a></p>
+<!--J+ Studio-->
+                    
+          <div class="one-column">
+            <h2>J+ Studio</h2>
+          </div>
 
-          <form method="post" action="?" data-jkit="[form:validateonly=true]">
-          
-          <div class="contact-one">
-            <p>
-              <label for="miniusername">Name</label><br />
-              <input name="miniusername" id="miniusername" data-jkit="[validate:required=true;min=3;max=10;error=Please enter your username (3-10 characters)]">
-            </p>
-          </div>  
-          
-          <div class="contact-two">  
-            <p>
-              <label for="miniemail">Email</label><br />
-              <input name="miniemail" id="miniemail" data-jkit="[validate:required=true;strength=50;error=Please write your email]">
-            </p>
-          </div>  
-          
-          <div class="contact-three">  
-            <p>
-              <label>Message</label><br />
-              <textarea id="message" name="message"></textarea><br/><br/>
-              
-              <input class="button-submit" name="send" type="submit" value="SUBMIT" />
-            </p>
-          </div>            
+
+          <div class="two-column">
+
+            <p>J+ is a full-service design studio focused on creating intuitive and strategic design solutions. We help new ventures and brands get started, and help refresh established brands for growth.
+
+            <br/><br/>
             
-            <p>
-            </p>
-          </form>
-          
-          
-        </div>
-        
-	<br/><br/><br/><br/><br/><br/><br/><br/>      
-  </div>
+            Founded in 2016 by Julia Wilson, we pride ourselves on our talented network of designers, developers and content creators. Depending on the project, J+ brings in talent from different fields to fill gaps and to create cross-disciplinary design solutions.
 
+            <br/><br/>
+            Julia has had previous stints at KIND Snacks and Sametz Blackstone Associates, and served as CEO of Scout Studio where she led a team of 25 desiners and developers. She formed Scout Labs, a design-thinking lab focusing on social issues. She's a problem solver, and applies that thinking to a wide array of design projects. 
+            </p>
+
+            <br/><br/>
+          
+          </div>     
+        
+ <!--Model-->
+
+          <div class="one-column">
+            <h2>Model</h2>
+          </div>
+
+
+          <div class="two-column">
+
+            <p>Our working model is both agile and process-based. We don't believe in quick fixes, but we do work quickly and thoughtfully. We believe in the power of design to generate new ideas and help you grow, and are committed to producing nothing less than the best.<br><br><br>
+            </p>
+          </div>               
+        </div>
+
+
+<!-- Team -->        
+        <div class="text-intro" id="site-type">
+          <h2>Team</h2>
+        </div>
+
+
+
+  <!--Team Photos-->
+
+  <ul class="portfolio-grid">
+
+    
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+      <img src="img/logo/1.jpg">
+        <a class="ajax-link" href="single.html">  
+          <div class="grid-hover">
+            <h1>JULIA WILSON</h1>
+            <p>Founder & Creative Director</p>
+          </div>
+        </a>  
+    </li>
+
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+      <img src="img/logo/2.jpg">
+        <a class="ajax-link" href="single.html">  
+          <div class="grid-hover">
+            <h1>ADAM NILSSON</h1>
+            <p>Project Manager</p>
+          </div>
+        </a>      
+    </li>    
+    
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+      <img src="img/logo/3.jpg">
+        <a class="ajax-link" href="single.html">  
+          <div class="grid-hover">
+            <h1>VENDELA LARSSON</h1>
+            <p>UI/UX Designer</p>
+          </div>
+        </a>      
+    </li>
+
+  </ul>
+
+  </div>
 
 
 
@@ -122,9 +165,9 @@ or shoot us an email directly to
 <div id="ajax-sidebar"></div>
 
 
-
   <!--Footer-->
-  <footer>
+
+  <footer id="ajax-footer">
 
     <div class="footer-margin">
       <div class="social-footer">
@@ -132,9 +175,7 @@ or shoot us an email directly to
         <a href="https://www.behance.net/TomaszMazurczak"><i class="fa fa-behance"></i></a>
       
       </div>     
-     <div class="copyright">© Copyright 2016 J+ Studio.com</div>
-      
-
+     <div class="copyright">© Copyright 2016 J+ Studio</div>
     
     </div>
 
