@@ -1,12 +1,12 @@
 body{
-  font-family: 'Droid+Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size:14px;
   font-weight: 400;
   overflow-y:scroll;
   -webkit-font-smoothing: antialiased;
 }
 
-::selection {
+:selection {
 		background: #000;
 		color: #fff;
 		text-shadow: none;
@@ -19,18 +19,25 @@ body{
 	}
 
 p{
-  font-family: 'Droid+Sans', sans-serif;
-  font-size:14px;
+  font-family: 'Roboto', sans-serif;
+  font-weight:400;
+  font-size:18px;
   font-weight: 400;
 }
 
 a{
-  text-decoration:none;
+  color:#39bee5;
+  font-weight: 900;
+  text-decoration: none;
   -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
 	-o-transition: all 0.2s ease-in;
 	transition: all 0.2s ease-in; 
+}
+
+a:hover{
+  color:#209dba;
 }
 
 a:focus {
@@ -111,8 +118,9 @@ NAVIGATION OPACITY
 .opacity-nav{
   position:fixed;
   font-family:"Inconsolata";
+  font-size:60px;
   text-decoration: underline;
-  font-weight:700;
+  font-weight:400;
   display:none;
   width:100%;
   height:100%;
@@ -125,6 +133,8 @@ ul.menu-fullscreen{
   width: 100%;
   top: 50%;
   position: absolute;
+  font-size:60px;
+  font-weight:400px;
   height: 280px;
   margin-top: -140px;
 }
@@ -132,19 +142,23 @@ ul.menu-fullscreen{
 ul.menu-fullscreen li{
   font-size:35px;
   text-align:center;
-  line-height:70px;
-  font-weight:500;
+  line-height:100px;
+  font-weight:400;
+  font-size:70px;
 }
 
 ul.menu-fullscreen li > a{
   color:#999999;
   border-bottom:1px;
   border:0;
+  font-weight:400;
 }
 
 ul.menu-fullscreen li > a:hover{
   color:#ffffff;
   border-bottom:1px;
+  text-decoration: line-through;
+  font-weight:400;
 
 }
 
@@ -155,12 +169,15 @@ ul.menu-fullscreen li > a:hover{
   top:0;
   margin:0 auto;
   z-index: 9997;
+  font-size:60px;
+
 }
 
 
 #fullscreen{
   display:none;
   position:absolute;
+  font-size:60px;
   top:0;
   width:100%;
   margin:0 auto;
@@ -351,13 +368,17 @@ CONTENT
 
 .one-column p{
   width:70% !important;
-  font-family: 'Droid+Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight:400;
+
 
 }
 
 .two-column p{
   width:100% !important;
-    font-family: 'Droid+Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+
 
 }
 
@@ -391,7 +412,7 @@ h2 {
   width: 100%;
   color: #000000;
   font-family: "Inconsolata";
-  font-weight:900;
+  font-weight:400;
   line-height:70px;
 }
 
@@ -405,9 +426,10 @@ h3 {
 }
 
 .content .text-intro p{
-  font-size:13px;
+  font-size:18px;
   color:#000000;
-  font-family: 'Droid+Sans', sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight:400;
   margin-top:30px;
   font-weight:400;
   line-height:22px;
@@ -503,6 +525,7 @@ PORTFOLIO GRID
   width:50%;
   position:relative;
   font-family: "Inconsolata";
+  font-size:20px;
   float:left;
   text-align:left;
 }
@@ -511,6 +534,7 @@ PORTFOLIO GRID
   width:50%;
   position:relative;
   font-family: "Inconsolata";
+  font-size:20px;
   float:left;
   text-align:right;
 }
@@ -558,7 +582,7 @@ li.grid-item{
 }
 
 .grid-hover h1{
-  font-size:23px;
+  font-size:24px;
   bottom:80px;
   left:40px;
   position:absolute;
@@ -570,7 +594,7 @@ li.grid-item{
 }
 
 .grid-hover p{
-  font-size:13px;
+  font-size:17px;
   bottom:40px;
   left:40px;
   position:absolute;
@@ -601,6 +625,10 @@ footer{
   overflow:hidden;
   position:relative;
   z-index:10;
+}
+
+.contact-body footer {
+  margin-top: 0px;
 }
 
 .footer-margin{
@@ -666,7 +694,9 @@ CONTACT
   padding-right:3%;
   position:relative;
   float:left;
+  font-family:"Inconsolata";
 }
+
 
 .contact-three{
   width:33%;
@@ -676,6 +706,13 @@ CONTACT
 
 .contact-one p, .contact-two p, .contact-three p{
   width:100% !important;
+}
+
+label {
+  font-family:"Inconsolata";
+  font-size:19px;
+  line-height:30px;
+
 }
 
 input{
@@ -709,8 +746,8 @@ input.button-submit{
   border:#00000;
   float:right;
   font-weight:900;
-  line-height:40px;
-  font-size:13px;
+  line-height:30px;
+  font-size:18px;
 }
 
 input:focus{
@@ -725,7 +762,7 @@ textarea{
   line-height:40px;
   background:#f8f7f7;
   color:#000000;
-  font-size:13px;
+  font-size:16px;
   font-family: 'Inconsolata', sans-serif;
   font-weight:500;
   margin-bottom:10px;
@@ -741,3 +778,9 @@ textarea{
 }
 
 textarea:focus{background:#f4f4f4; height:250px;}
+
+#map {
+  width: 100%;
+  height: 400px;
+  margin-top:150px;
+}
