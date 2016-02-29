@@ -2,37 +2,32 @@
 
 <html lang="en">
 <head>
-
   <meta charset="utf-8">
-  <title>J+ - VocaliD</title>
+  <title>VocaliD</title>
   <meta name="description" content="J+ Studio is a branding, web and product design studio that keeps things clean and intuitive.">
   <meta name="keywords" content="clean, intuitive, design, branding, product design, web design">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="author" content="j-plus.co">
+  <meta name="author" content="thomsoon.com">
   <link rel="icon" type="image/png" href="img/icon.png" />
 
-<!--Style-->
+<!--Style Sheets-->
 
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/style-responsive.css">
-  
+  <link rel="stylesheet" href="css/style-responsive.css">  
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600' rel='stylesheet' type='text/css'>
-   <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-  
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  
+  <link rel="stylesheet" href="unslider-master/dist/css/unslider.css">
+  <link rel="stylesheet" href="unslider-master/dist/css/unslider-dots.css">
+
+<!--Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 </head>
+
 
 <body>
 
 <!--Preloader-->
-
 <div class="preloader" id="preloader">
     <div class="item">
       <div class="spinner">
@@ -40,42 +35,62 @@
     </div>
 </div>
 
+<!-- Navigation -->
+
 <div class="opacity-nav">
-
-        <div class="menu-index" id="buttons" style="z-index:999999">
+    <div class="menu-index" id="buttons" style="z-index:999999">
         <i class="fa  fa-close"></i>
-        </div>
+    </div>
 
-    <ul class="menu-fullscreen">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+    <ul class="menu-left">
+      <li><a href="index.html" class="nav">Home</a></li>
+      <li><a href="about.html" class="nav">About</a></li>
+      <li><a href="contact.html" class="nav">Contact</a></li>
+      <li><a href="https://medium.com/@youngandhungryblog" class="nav">Y & H</a></li>
     </ul>
 
+    <ul class="menu-right">
+      <li>Contact<br><p>+201 704 3699</p><br></li>
+
+      <li>General<br><p><a href="mailto:hello@j-plus.co" class="header-nav">hello@j-plus.co</a></p><br></li>
+
+      <li>New business<br><p><a href="mailto:jules@j-plus.co" class="header-nav">jules@j-plus.co</a></p><br></li>
+
+      <li>Address<br><p>The Yard @ Accomplice<br>25 First Street<br>Cambridge,MA</p><br>
+      </li>
+
+      <li>Let's be friends<br>
+        <p>
+          <a href="www.facebook.com/jplusdesign" class="header-nav">Facebook</a><br>
+          <a href="www.twitter.com/jplusstudio" class="header-nav">Twitter</a><br>
+          <a href="www.instagram.com/juleslovin" class="header-nav">Instagram</a><br>
+          <a href="www.behance.net/jplusdesign" class="header-nav">Behance</a>
+        </p>
+      </li>
+    </ul>
 </div>
 
 
-  <!--Header-->
-  <header id="fullscreen">
-    
-      <div class="logo" id="full"><a href="index.html">
-        <img src="img/logo.png" alt="logo" style="width:50px; height:50px; border:0; margin-top: 30px;"></a>
-      </div>
-      
-        <div class="menu-index" id="button">
-        <i class="fa fa-bars"></i>
-        </div>
-        
-  </header>
+<!--Header-->
 
-  <div class="clear"></div>
+<header id="fullscreen">
+  <div class="logo" id="full"><a href="index.html">
+      <img src="img/logo.png" alt="logo" style="width:50px; height:50px; border:0; margin-top: 30px;"></a>
+  </div>
+      
+  <div class="menu-index" id="button">
+      <i class="fa fa-bars"></i>
+  </div>
+</header>
+
+<div class="clear"></div>
 
   <!--Content-->
 
   <div class="content" id="ajax-content">
 
 
-        <div class="text-intro">
+        <div class="text-intro" style="margin-top:150px;">
 
           <h1>VocaliD</h1>
           
@@ -163,21 +178,40 @@
 
   <!--Footer-->
 
-  <footer>
+<footer>
 
-    <div class="footer-margin">
-      <div class="social-footer">
-        <a href="https://www.facebook.com/jplusdesign"><i class="fa fa-facebook"></i></a>
-        <a href="https://www.behance.net/jplusdesign"><i class="fa fa-behance"></i></a>
-      
-      </div>     
+    <div class="footer-margin">   
 
-      <div class="quote">“Everything should be made as simple as possible, but not simpler.” –Albert Einstein</div>
+      <div class="quote">
+      <div class="footheader">Contact</div><br>
+      +201 704 3699 <br><br><br>
 
-      <div class="copyright">© Copyright 2016 J+ Studio</div>
-      
+      <div class="footheader">General</div><br>
+      <a href="mailto:hello@j-plus.co" class="footer">hello@j-plus.co</a> 
+      <br><br><br>
 
-    
+      <div class="footheader">New business</div> <br>
+      <a href="mailto:jules@j-plus.co"class="footer">jules@j-plus.co</a>
+      </div>
+
+      <div class="quote2">
+      <div class="footheader">Address</div><br>
+      The Yard @ Accomplice<br>
+      25 First Street<br>
+      Cambridge, MA 02120<br><br><br>
+
+      <div class="footheader">Let’s be friends</div><br>
+      <a href="www.facebook.com/jplusdesign"class="footer">Facebook</a><br>
+      <a href="www.twitter.com/jplusstudio"class="footer">Twitter</a><br>
+      <a href="www.instagram.com/juleslovin"class="footer">Instagram</a><br>
+      <a href="www.behance.net/jplusdesign"class="footer">Behance</a><br>
+    </div>
+
+    <div class="quote3">
+    Everything should be made as simple as possible, but not
+simpler. // Albert Einstein<br><br><br><br><br><br><br>
+
+Copyright © 2016 J+ Studio
     </div>
 
 

@@ -168,10 +168,10 @@ $(document).ready(function(){
 	setTimeout( function(){
 		if($("#site-type").length) {
         $(".typewrite span").typed({
-            strings: ["products ", "websites "],
-            typeSpeed: 100,
+            strings: ["Let's talk design", "Let's work together ", "Let's be friends "],
+            typeSpeed: 90,
             backDelay: 500,
-            loop: false,
+            loop: true,
             contentType: 'html', // or text
             // defaults to false for infinite loop
             loopCount: false,

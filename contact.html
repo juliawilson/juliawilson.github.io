@@ -17,10 +17,10 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/style-responsive.css">  
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,16 +44,60 @@
 <div class="opacity-nav">
 
         <div class="menu-index" id="buttons" style="z-index:999999">
-        <i class="fa  fa-close"></i>
+          <i class="fa  fa-close"></i>
         </div>
 
-    <ul class="menu-fullscreen">
-      <li><a href="index.html">&nbsp; Home &nbsp;</a></li>
-      <li><a href="about.html">&nbsp; About &nbsp;</a></li>
-      <li><a href="contact.html">&nbsp; Contact &nbsp;</a></li>
+    <ul class="menu-left">
+      <li><a href="index.html" class="nav">Home</a></li>
+      <li><a href="about.html" class="nav">About</a></li>
+      <li><a href="contact.html" class="nav">Contact</a></li>
+      <li><a href="https://medium.com/@youngandhungryblog" class="nav">Y & H</a></li>
     </ul>
 
+    <ul class="menu-right">
+      <li>
+        Contact
+        <br>
+        <p>+201 704 3699</p>
+        <br>
+      </li>
+
+      <li>
+        General
+        <br>
+        <p><a href="mailto:hello@j-plus.co" class="header-nav">hello@j-plus.co</a></p>
+        <br>
+      </li>
+
+      <li>
+        New business
+        <br>
+        <p><a href="mailto:jules@j-plus.co" class="header-nav">jules@j-plus.co</a></p>
+        <br>
+      </li>
+
+      <li>
+        Address
+        <br>
+        <p>The Yard @ Accomplice<br>25 First Street<br>Cambridge,MA</p>
+        <br>
+      </li>
+
+      <li>
+        Let's be friends
+        <br>
+        <p>
+        <a href="www.facebook.com/jplusdesign" class="header-nav">Facebook</a>
+        <br><a href="www.twitter.com/jplusstudio" class="header-nav">Twitter</a>
+        <br><a href="www.instagram.com/juleslovin" class="header-nav">Instagram</a>
+        <br><a href="www.behance.net/jplusdesign" class="header-nav">Behance</a>
+        </p>
+      </li>
+    </ul>
 </div>
+
+</div>
+
 
 
   <!--Header-->
@@ -73,18 +117,49 @@
 
   <!--Content-->
 
-  <div class="content" id="ajax-content">
-
-        <div class="text-intro">
-
-          <h1>Say hello!</h1>
-
-          <p><img src="img/contact/email.png" alt="email icon" style="width:20px";>
-          <a href="mailto:hello@j-plus.co">&nbsp;&nbsp;hello@j-plus.co</a></p>
-          <p><img src="img/contact/phone.png" alt="phone icon" style="width:17px";>&nbsp;&nbsp; +1 201.704.3699</p>
+ <div class="content" id="ajax-content">
+   <div class="top-text" id="site-type">
+      <h1 class="typewrite" style="margin-left:70px;"><span>Let's grab a coffee</span></h1>
+</div>
 
 
-          <form method="post" action="http://formspree.io/hello@j-plus.co" data-jkit="[form:validateonly=true]">
+    <div class="text-intro">
+      <div class="one-column">
+         <h2>Let's chat &mdash;</h2>
+      </div>
+
+          <div class="two-column">
+            <p style="margin-top:15px;">
+            hello@j-plus.co
+            <img src="img/contact/email.png" alt="email icon" style="width:30px";><br><br>
+            +1 201 704 3699
+
+            <br><br><br>
+            </p>
+          </div>       
+
+
+      <div class="one-column">
+         <h2>Grab a coffee &mdash;</h2>
+      </div>
+
+          <div class="two-column">
+            <p style="margin-top:25px;">
+            Located in Cambridge in The Yard @ Accomplice
+            <br><br>
+            25 First Street, Cambridge MA
+
+            <br><br><br>
+            </p>
+          </div>       
+
+
+           <div class="one-column">
+            <h2>& work together &mdash;</h2>
+          </div>
+
+
+          <div class="two-column" style="margin-top:-20px">                     
           
           <div class="contact-one">
             <p>
@@ -92,6 +167,8 @@
               <input name="miniusername" id="miniusername" data-jkit="[validate:required=true;error=Please enter your name ]">
             </p>
           </div>  
+
+          <br>
           
           <div class="contact-two">  
             <p>
@@ -112,6 +189,7 @@
             <p>
             </p>
           </form>
+            </div> 
           
           
         </div>
@@ -121,7 +199,7 @@
 
   <!--MAP-->
 
-  <div id="map"></div>
+  <div id="map" style=""></div>
 
 
 
@@ -133,17 +211,40 @@
 
 
   <!--Footer-->
-  <footer>
+<footer>
 
-    <div class="footer-margin">
-      <div class="social-footer">
-        <a href="https://www.facebook.com/jplusdesign/"><i class="fa fa-facebook"></i></a>
-        <a href="https://www.behance.net/jplusdesign"><i class="fa fa-behance"></i></a>
-    </div>     
+    <div class="footer-margin">   
 
-      <div class="quote">“Everything should be made as simple as possible, but not simpler.” –Albert Einstein</div>
-      
-     <div class="copyright">© Copyright 2016 J+ Studio</div>
+      <div class="quote">
+      <div class="footheader">Contact</div><br>
+      +201 704 3699 <br><br><br>
+
+      <div class="footheader">General</div><br>
+      <a href="mailto:hello@j-plus.co" class="footer">hello@j-plus.co</a> 
+      <br><br><br>
+
+      <div class="footheader">New business</div> <br>
+      <a href="mailto:jules@j-plus.co"class="footer">jules@j-plus.co</a>
+      </div>
+
+      <div class="quote2">
+      <div class="footheader">Address</div><br>
+      The Yard @ Accomplice<br>
+      25 First Street<br>
+      Cambridge, MA 02120<br><br><br>
+
+      <div class="footheader">Let’s be friends</div><br>
+      <a href="www.facebook.com/jplusdesign"class="footer">Facebook</a><br>
+      <a href="www.twitter.com/jplusstudio"class="footer">Twitter</a><br>
+      <a href="www.instagram.com/juleslovin"class="footer">Instagram</a><br>
+      <a href="www.behance.net/jplusdesign"class="footer">Behance</a><br>
+    </div>
+
+    <div class="quote3">
+    Everything should be made as simple as possible, but not
+simpler. // Albert Einstein<br><br><br><br><br><br><br>
+
+Copyright © 2016 J+ Studio
     </div>
 
 
