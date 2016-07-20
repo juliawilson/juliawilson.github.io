@@ -1439,14 +1439,12 @@ pre code {
   }
   .col-lg-offset-1 {
     margin-left: 8.33333333%;
-<<<<<<< HEAD
     margin-top:-40px;
-=======
->>>>>>> 0cef51b1c128c7c38d7a333a9085ec470259dc87
-  }
+
   .col-lg-offset-0 {
     margin-left: 0;
   }
+
 }
 table {
   background-color: transparent;
