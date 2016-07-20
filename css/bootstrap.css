@@ -1439,7 +1439,7 @@ pre code {
   }
   .col-lg-offset-1 {
     margin-left: 8.33333333%;
-    margin-top:-40px;
+    margin-top:-10%;
   }
 
   .col-lg-offset-0 {
@@ -1447,6 +1447,7 @@ pre code {
   }
 
 }
+
 table {
   background-color: transparent;
 }
