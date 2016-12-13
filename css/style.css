@@ -4131,3 +4131,32 @@ body.fadeOut {
 
 /*social media button styles */
 
+
+
+/* Vendela's Custom CSS!! */
+.highlight {
+  margin-top: 100px;
+}
+
+.logos {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.logos img {
+  margin: 20px 0px;
+}
+
+/*.logos h2.transparent::after {
+  display: block;
+  content: '................................................................................................................................................................................';
+  font-size: 3rem;
+  color: inherit;
+  letter-spacing: 1px;
+}*/
+
+hr.solid {
+  height: 0px;
+  border: 1px solid black;
+  box-shadow: none;
+}
