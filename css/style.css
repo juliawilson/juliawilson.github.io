@@ -353,7 +353,7 @@ hr,
 .navbar-nav > li > a:active,
 .navbar-nav > li > a:focus,
 .navbar-nav > li > a:hover {color: inherit;}
-.navbar-nav > li > a:hover:after {background: #000000;}
+/*.navbar-nav > li > a:hover:after {background: #000000;}*/
 .navbar-nav > li.open > a,
 .navbar-nav > li.active > a,
 .navbar-nav > li.hover > a { color: #000000; }
@@ -364,7 +364,7 @@ hr,
 .single-post .link-area,
 body:not(.single-post) a:hover .arrow,
 #submit-btn .arrow,
-.blog-sidebar .widget a:hover .arrow { background: #000000; }
+/*.blog-sidebar .widget a:hover .arrow { background: #000000; }*/
 body:not(.single-post) a:hover .right-arrow:after,
 #submit-btn .right-arrow:after,
 .blog-sidebar .widget a:hover .right-arrow:after {border-left-color: #1106FF;}
@@ -542,15 +542,16 @@ body .js-ajax-holder .js-load-more {
 	color: #B8B8B8;
 	background: transparent;
 }
-.navbar-nav > li > a:after {
-	position: absolute;
-  color:#000000;
-	content: "";
-	left: 2px;
-	bottom: -7px;
-	width: 15px;
-	height: 1px;
-	background: none;
+.navbar-nav > li.active > a:after {
+  width: 110%;
+  content: '';
+  height: 10px;
+  background-color: #c4fff4;
+  position: absolute;
+  bottom: -2px;
+  left: -3px;
+  z-index: -1;
+  transition: 0.3s ease;
 }
 .nav > li > a:hover,
 .nav > li > a:focus { background: transparent; }
@@ -4147,7 +4148,7 @@ body.fadeOut {
   margin: 20px 0px;
 }
 
-/*.logos h2.transparent::after {
+/*.logos h2.transparent:after {
   display: block;
   content: '................................................................................................................................................................................';
   font-size: 3rem;
@@ -4159,4 +4160,61 @@ hr.solid {
   height: 0px;
   border: 1px solid black;
   box-shadow: none;
+}
+
+.team {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.team img + p {
+  margin: 20px 0px 0px;
+}
+
+.team .row {
+  margin-bottom: 40px;
+}
+
+.special-link > a:after {
+  width: 110%;
+  content: '';
+  height: 10px;
+  background-color: #c4fff4;
+  position: absolute;
+  bottom: -2px;
+  left: -3px;
+  z-index: -1;
+  transition: 0.3s ease;
+}
+
+.bio {
+  background-color: #FFF;
+  border: 2px solid #000;
+  text-align: left;
+  padding: 10px;
+  display:none;
+}
+
+#julia:hover .bio {
+  display:block;
+}
+
+#nathan:hover .bio {
+  display:block;
+}
+
+#vendela:hover .bio {
+  display:block;
+}
+
+#james:hover .bio {
+  display:block;
+}
+
+#claire:hover .bio {
+  display:block;
+}
+
+#aki:hover .bio {
+  display:block;
 }
